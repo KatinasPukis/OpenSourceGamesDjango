@@ -8,8 +8,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 def home(request):
-    customer=Customer.objects.all()
-    return render(request,'accounts/index.html')
+    news= NewsClass.objects.all()
+    return render(request,'accounts/index.html',{'news':news})
 
 def news(request):
 
@@ -91,3 +91,6 @@ def uploadNews(request):
             return redirect('news')
     context={'form':form}
     return render(request,'accounts/uploadNews.html',context)
+
+
+    

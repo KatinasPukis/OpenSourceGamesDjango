@@ -1,15 +1,17 @@
+
 {% extends 'accounts/main.html' %}
 {% block content %}
+{% load static %}
     <div id="wrapper">
         <header>
-            <h2></h2>
+            <h2>Open Source-Games</h2>
         </header>
         {% include 'accounts/navbar.html' %}
         <div class="row">
             <div class="leftcolumn2">
                 <div class="card">
                     <div class="fill">
-                        <img src="/1 Praktine/Img/reklama3.png" alt="Error loading">
+                        <img src="{%static '/Images/reklama2.png' %}" alt="Error loading">
                     </div>
 
 
@@ -19,9 +21,7 @@
                 <div class="card">
                    
                     <h1>{{userGame.gameName}}</h1>
-                    
-                    
-                    
+                    <!-- vieta nuotraukai -->
                     <h2>{{userGame.gameOwnerUsername}}</h2>
                     <p>{{userGame.gameCode}}</p>
                     <h3>Description:</h3>
@@ -30,7 +30,9 @@
                 </div>
             </div>
             <div class="rightcolumn2">
-
+                <div class="fill">
+                    <img src="{%static '/Images/reklama1.png' %}" alt="Error loading">
+                </div>
                 
             </div>
 

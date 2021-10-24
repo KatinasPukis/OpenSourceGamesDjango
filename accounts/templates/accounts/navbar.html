@@ -8,7 +8,7 @@
     <li><a href="#Anketa">Kontaktai</a></li>
     {% if request.user.is_authenticated %}
         <li style="float: right"><a href="{% url 'logout' %}">Atsijungti</a></li>
-        <li style="float: right">cbb, {{request.user.username}}</li>
+        <li style="float: right">{{request.user.username}}</li>
     {% else %}
     <li style="float: right;"><a href="{% url 'login' %}">Prisijungti</a></li>
     <li style="float: right;"><a href="{% url 'register' %}">Registracija</a></li>

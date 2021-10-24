@@ -13,27 +13,17 @@
                 <div id="aboutmeheader">
                     <h1>Naujienos</h1>
                 </div>
+                {% for i in news%}
+                <a href={% url 'newsPage' i.id %}>
                 <div class="minicontentMain">
                         
-                    <h3 style="text-align: center;">Content</h3>
-                    <h2>Vidinis content</h2>
+                    <h3 style="text-align: center;">{{i.headline}}</h3>
+                    <h2>{{i.text}}</h2>
                     
                     
                 </div>
-                <div class="minicontentMain">
-                        
-                    <h3 style="text-align: center;">Content</h3>
-                    <h2>Vidinis content</h2>
-                    
-                    
-                </div>
-                <div class="minicontentMain">
-                        
-                    <h3 style="text-align: center;">Content</h3>
-                    <h2>Vidinis content</h2>
-                    
-                    
-                </div>
+            </a>
+                {% endfor%}
                 <div class="clear"></div>
 
 
