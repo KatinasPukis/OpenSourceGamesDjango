@@ -1,0 +1,17 @@
+
+<ul class="navigation">
+    <li><a href="{% url 'home' %}">Pradžia</a></li>
+    <li><a href="about.html">Forumas</a></li>
+    <li><a href="{% url 'news' %}">Naujienos</a></li>
+    <li><a href="{% url 'games' %}">Žaidimai</a></li>
+    <li><a href="#Kontaktai">Pagalba</a></li>
+    <li><a href="#Anketa">Kontaktai</a></li>
+    {% if request.user.is_authenticated %}
+        <li style="float: right"><a href="{% url 'logout' %}">Atsijungti</a></li>
+        <li style="float: right">cbb, {{request.user.username}}</li>
+    {% else %}
+    <li style="float: right;"><a href="{% url 'login' %}">Prisijungti</a></li>
+    <li style="float: right;"><a href="{% url 'register' %}">Registracija</a></li>
+    {% endif %}
+    
+</ul>

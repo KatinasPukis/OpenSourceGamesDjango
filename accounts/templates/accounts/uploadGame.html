@@ -1,0 +1,93 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+<div id="wrapper">
+
+    <header>
+        <h2>Open-Source-Games</h2>
+    </header>
+
+    {% include 'accounts/navbar.html' %}
+    <div class="row">
+        <div class="leftcolumn2">
+            <div class="card">
+                <div class="fill">
+                    <img src="Images/reklama2.png" alt="Error loading">
+                </div>
+
+
+            </div>
+        </div>
+        <!--sutvarkyti kad tekstas butu arciau lauku , tipo po desine puse ju-->
+        <div class="middlecolumn">
+            <div class="card">
+
+                <form action="/action_page.php">
+                    <div class="row">
+                        <h2 style="text-align: center;">Žaidimo įkėlimas</h2>
+                        <div class="col-25">
+                            <label for="ilgis">Žaidimo pavadinimas</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="username" name="username"
+                                placeholder="Nurodykite žaidimo pavadinimą">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="ilgis">Kodo kalbos pavadinimas</label>
+                        </div>
+                        <div class="col-75">
+                            <select id="filter" name="country">
+                                <option value="" selected disabled hidden>Kalba</option>
+                                <option value="c">C#</option>
+                                <option value="c++">C++</option>
+                                <option value="php">PHP</option>
+                                <option value="python">Python</option>
+                                <option value="java">Java</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-25">
+                            <label for="ilgis">Žaidimo kodas</label>
+                        </div>
+                        <div class="col-75">
+                            <textarea style="max-height: 400px;" id="w3review" name="w3review" rows="4" cols="50">At w3schools.com you will learn how to make a website.</textarea>
+                        </div>
+                    </div>
+
+
+                    <br>
+                    <div class="row">
+                        <input type="submit" value="Įkelti">
+                    </div>
+                </form>
+
+
+
+
+
+            </div>
+        </div>
+        <div class="rightcolumn2">
+
+            <div class="card">
+                <div class="fill">
+                    <img src="Images/reklama3.png" alt="Error loading">
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div id="footer">
+        <footer>
+            <address>2021 &copy;Dominykas Pleteras</address>
+        </footer>
+    </div>
+</div>
+{% endblock %}
