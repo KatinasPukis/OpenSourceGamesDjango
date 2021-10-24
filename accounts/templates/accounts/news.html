@@ -14,43 +14,20 @@
                     <h1>Aktualijos</h1>
                 </div>
                 <div class="card">
+                    {% for i in news%}
+                    <a href={% url 'newsPage' i.id %}>
                     <div class="minicontent">
 
-                        <h3 style="text-align: center;">Content</h3>
-                        <h2>Vidinis content</h2>
+                        <h3 style="text-align: center;">{{i.headline}}</h3>
+                        <hr>
+                        <h4>Autorius:{{i.author}}</h4>
+                        <hr>
+                        <h2>{{i.text}}</h2>
 
                     </div>
+                </a>
+                    {% endfor%}
 
-                    <div class="minicontent">
-
-                        <h3 style="text-align: center;">Content</h3>
-                        <h2>Vidinis content</h2>
-
-                    </div>
-                    <div class="minicontent">
-
-                        <h3 style="text-align: center;">Content</h3>
-                        <h2>Vidinis content</h2>
-
-                    </div>
-                    <div class="minicontent">
-
-                        <h3 style="text-align: center;">Content</h3>
-                        <h2>Vidinis content</h2>
-
-                    </div>
-                    <div class="minicontent">
-
-                        <h3 style="text-align: center;">Content</h3>
-                        <h2>Vidinis content</h2>
-
-                    </div>
-                    <div class="minicontent">
-
-                        <h3 style="text-align: center;">Content</h3>
-                        <h2>Vidinis content</h2>
-
-                    </div>
                     <div class="clear"></div>
                 </div>
             </div>

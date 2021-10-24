@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 
-from accounts.models import Customer, UserGame
+from accounts.models import Customer, UserGame, News
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm, CreateNewGame 
@@ -12,7 +12,9 @@ def home(request):
     return render(request,'accounts/index.html')
 
 def news(request):
-    return render(request,'accounts/news.html')
+
+    news= News.objects.all()
+    return render(request,'accounts/news.html',{'news':news})
 
 def register(request):
     form= CreateUserForm()
@@ -70,3 +72,9 @@ def uploadGame(request):
     context={'form':form}
 
     return render(request,'accounts/uploadGame.html',context)
+
+
+def newsPage(request,pk):
+    news=News.objects.get(id=pk)
+    context={'news':news}
+    return render(request,'accounts/newsPage.html',context)
