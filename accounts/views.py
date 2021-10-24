@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from accounts.models import Customer, UserGame
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm
+from .forms import CreateUserForm, CreateNewGame 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 # Create your views here.
@@ -54,3 +54,19 @@ def gamesPage(request,pk):
     userGame= UserGame.objects.get(id=pk)
     context={'userGame':userGame}
     return render(request,'accounts/gamesPage.html',context)
+
+def uploadGame(request):
+    form=CreateNewGame()
+    uloggedinuser=request.user.username
+    form = CreateNewGame(initial={'gameOwnerUsername': uloggedinuser})
+    if request.method=='POST':
+        form=CreateNewGame(request.POST)
+        print(request.POST)
+        
+        if form.is_valid():
+            print('pasol naxui')
+            form.save()
+            return redirect('games')
+    context={'form':form}
+
+    return render(request,'accounts/uploadGame.html',context)

@@ -21,31 +21,25 @@
         <div class="middlecolumn">
             <div class="card">
 
-                <form action="/action_page.php">
+                <form method="POST" action="">
+                    {% csrf_token%}
+                    
                     <div class="row">
                         <h2 style="text-align: center;">Žaidimo įkėlimas</h2>
                         <div class="col-25">
                             <label for="ilgis">Žaidimo pavadinimas</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="username" name="username"
-                                placeholder="Nurodykite žaidimo pavadinimą">
+                            {{form.gameName}}
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label for="ilgis">Kodo kalbos pavadinimas</label>
+                            <label for="ilgis">Žaidimo aprašymas</label>
                         </div>
                         <div class="col-75">
-                            <select id="filter" name="country">
-                                <option value="" selected disabled hidden>Kalba</option>
-                                <option value="c">C#</option>
-                                <option value="c++">C++</option>
-                                <option value="php">PHP</option>
-                                <option value="python">Python</option>
-                                <option value="java">Java</option>
-                            </select>
+                            {{form.gameDescription}}
                         </div>
                     </div>
 
@@ -55,15 +49,26 @@
                             <label for="ilgis">Žaidimo kodas</label>
                         </div>
                         <div class="col-75">
-                            <textarea style="max-height: 400px;" id="w3review" name="w3review" rows="4" cols="50">At w3schools.com you will learn how to make a website.</textarea>
+                            {{form.gameCode}}
                         </div>
                     </div>
-
-
-                    <br>
                     <div class="row">
                         <input type="submit" value="Įkelti">
                     </div>
+                    <div style="visibility: hidden;" class="row">
+
+                        <div class="col-25">
+                            <label for="ilgis">Žaidimo kurejas</label>
+                        </div>
+                        <div class="col-75">
+                            <label for="ilgis">{{form.gameOwnerUsername}}</label>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <br>
+                    
                 </form>
 
 

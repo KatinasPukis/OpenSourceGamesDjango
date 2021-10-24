@@ -25,7 +25,10 @@
                     <h1>Visi žaidimai</h1>
                 </div>
                 <div class="ikelimas">
-                    <input type="submit" value="Įkelti žaidimą">
+                    <button type="button" value="Įkelti žaidimą">
+                        <a style="color: black; text-decoration: none;" href="{% url 'uploadGame' %}">Įkelti žaidimą!</a>
+                    </button>
+                    
                 </div>
             </div>
             {% for i in userGame%}

@@ -9,5 +9,5 @@ urlpatterns = [
     path('logout/', views.logoutPage, name='logout'),
     path('games/', views.games, name='games'),
     path('gamesPage/<str:pk>/', views.gamesPage, name='gamesPage'),
-
+    path('uploadGame/', views.uploadGame, name='uploadGame'),
 ]

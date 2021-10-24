@@ -11,7 +11,6 @@ class UserGame(models.Model):
     gameName=models.CharField(max_length=200,null=True)
     gameDescription=models.CharField(max_length=1000,null=True)
     gameCode=models.CharField(max_length=100000,null=True)
-    date_created=models.DateTimeField(auto_now_add=True,null=True)
     gameOwnerUsername=models.CharField(max_length=200,null=True)
 
     

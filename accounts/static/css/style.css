@@ -62,7 +62,7 @@
       padding: 0;
       overflow: hidden;
       background-color: rgb(76 76 76);
-     /* border-radius: 0 0 20px 20px; */
+      border-radius: 0 0 20px 20px; 
       
       
       
@@ -103,7 +103,7 @@
     margin-top: 20px;
     border-style: solid;
     border-width: 1px;
-    /*border-radius: 25px; */
+    border-radius: 25px; 
     color: inherit;
     
   }
@@ -234,7 +234,7 @@
     margin-top: 10px;
     border-style: solid;
     background-color: rgb(35 35 41);
-   /* border-radius: 25px; */
+    border-radius: 25px; 
     color: inherit;
   }
   
@@ -360,7 +360,7 @@
     width: 500px;
     height: 450px; 
     border: 1px solid black;
-   /* border-radius: 20px; */
+    border-radius: 20px; 
   }
   div.sidecontent{
     padding: 0px;
@@ -379,7 +379,7 @@
     width: 320px;
     height: 200px; 
     border: 1px solid black;
-   /* border-radius: 20px; */
+   border-radius: 20px; 
   }
   div.minicontentMiddle{
     padding: 0px;
@@ -391,7 +391,7 @@
     width: 320px;
     height: 200px; 
     border: 1px solid black;
-   /* border-radius: 20px; */
+    border-radius: 20px; 
   }
   .games-content-item{
     padding: 0px;
