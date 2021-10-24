@@ -14,7 +14,7 @@ class UserGame(models.Model):
     gameOwnerUsername=models.CharField(max_length=200,null=True)
 
 
-class News(models.Model):
+class NewsClass(models.Model):
     headline=models.CharField(max_length=200,null=True)
     author=models.CharField(max_length=200,null=True)
     text=models.CharField(max_length=200,null=True) 

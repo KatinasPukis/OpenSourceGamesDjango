@@ -3,7 +3,9 @@ from django.forms import ModelForm, fields
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import UserGame
+
+
+from .models import  NewsClass, UserGame
 
 class CreateUserForm(UserCreationForm):
     class Meta:
@@ -15,3 +17,8 @@ class CreateNewGame(ModelForm):
     class Meta:
         model=UserGame
         fields=['gameName','gameDescription','gameCode','gameOwnerUsername']
+
+class CreateNewNews(ModelForm):
+    class Meta:
+        model=NewsClass
+        fields=['headline','author','text']

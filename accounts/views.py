@@ -1,9 +1,9 @@
 from django.shortcuts import redirect, render
 
-from accounts.models import Customer, UserGame, News
+from accounts.models import Customer, UserGame, NewsClass
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm, CreateNewGame 
+from .forms import CreateNewNews, CreateUserForm, CreateNewGame
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 # Create your views here.
@@ -13,7 +13,7 @@ def home(request):
 
 def news(request):
 
-    news= News.objects.all()
+    news= NewsClass.objects.all()
     return render(request,'accounts/news.html',{'news':news})
 
 def register(request):
@@ -75,6 +75,19 @@ def uploadGame(request):
 
 
 def newsPage(request,pk):
-    news=News.objects.get(id=pk)
+    news=NewsClass.objects.get(id=pk)
     context={'news':news}
     return render(request,'accounts/newsPage.html',context)
+
+def uploadNews(request):
+    form=CreateNewNews()
+ 
+    if request.method=='POST':
+        form=CreateNewNews(request.POST)
+        print(request.POST)
+        
+        if form.is_valid():
+            form.save()
+            return redirect('news')
+    context={'form':form}
+    return render(request,'accounts/uploadNews.html',context)
