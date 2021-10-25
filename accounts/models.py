@@ -1,4 +1,7 @@
-from django.db import models
+from django.db import models 
+from django.contrib.auth.models import User
+
+
 # Create your models here.
 class Customer(models.Model):
     username=models.CharField(max_length=200,null=True)
@@ -13,6 +16,8 @@ class UserGame(models.Model):
     gameCode=models.CharField(max_length=100000,null=True)
     image = models.ImageField(null=True, blank=True)
     gameOwnerUsername=models.CharField(max_length=200,null=True)
+    def __str__(self):
+        return self.gameName
 
 
 class NewsClass(models.Model):
@@ -20,3 +25,14 @@ class NewsClass(models.Model):
     author=models.CharField(max_length=200,null=True)
     text=models.CharField(max_length=200,null=True) 
     image = models.ImageField(null=True, blank=True)
+    def __str__(self):
+        return self.headline
+
+class Comment(models.Model):
+    userid=models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    newsid=models.ForeignKey(NewsClass, null=True, on_delete=models.SET_NULL)
+    commentText=models.CharField(max_length=10000,null=True)
+    def __str__(self):
+        return self.commentText
+    
+     

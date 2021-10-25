@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 
-from accounts.models import Customer, UserGame, NewsClass
+from accounts.models import Comment, Customer, UserGame, NewsClass
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateNewNews, CreateUserForm, CreateNewGame
@@ -76,8 +76,11 @@ def uploadGame(request):
 
 def newsPage(request,pk):
     news=NewsClass.objects.get(id=pk)
-    context={'news':news}
+    comment=Comment.objects.all()
+    context={'news':news, 'comment':comment}
     return render(request,'accounts/newsPage.html',context)
+
+    
 
 def uploadNews(request):
     form=CreateNewNews()
