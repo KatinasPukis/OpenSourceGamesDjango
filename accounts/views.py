@@ -62,7 +62,7 @@ def uploadGame(request):
     uloggedinuser=request.user.username
     form = CreateNewGame(initial={'gameOwnerUsername': uloggedinuser})
     if request.method=='POST':
-        form=CreateNewGame(request.POST)
+        form=CreateNewGame(request.POST, request.FILES)
         print(request.POST)
         
         if form.is_valid():
@@ -83,7 +83,7 @@ def uploadNews(request):
     form=CreateNewNews()
  
     if request.method=='POST':
-        form=CreateNewNews(request.POST)
+        form=CreateNewNews(request.POST, request.FILES)
         print(request.POST)
         
         if form.is_valid():

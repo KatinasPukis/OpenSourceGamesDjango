@@ -21,7 +21,7 @@
         <div class="middlecolumn">
             <div class="card">
 
-                <form method="POST" action="">
+                <form method="POST" action="" enctype="multipart/form-data">
                     {% csrf_token%}
                     
                     <div class="row">
@@ -50,6 +50,15 @@
                         </div>
                         <div class="col-75">
                             {{form.gameCode}}
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-25">
+                            <label for="ilgis">Nuotrauka</label>
+                        </div>
+                        <div class="col-75">
+                            {{form.image}}
                         </div>
                     </div>
                     <div class="row">

@@ -1,14 +1,14 @@
 {% extends 'accounts/main.html' %}
 {% block content %}
-    <div id="wrapper">
+<div id="wrapper">
 
-        <header>
-            <h2>Open-Source-Games</h2>
-        </header>
-    
-        {% include 'accounts/navbar.html' %}
+    <header>
+        <h2>Open-Source-Games</h2>
+    </header>
+
+    {% include 'accounts/navbar.html' %}
     <div class="row">
-        
+
         <!--sutvarkyti kad tekstas butu arciau lauku , tipo po desine puse ju-->
         <div class="games_wrapper">
             <div id="games-header">
@@ -24,21 +24,23 @@
                 <div class="pavadinimas">
                     <h1>Visi žaidimai</h1>
                 </div>
+                {% if request.user.is_authenticated %}
                 <div class="ikelimas">
                     <button type="button" value="Įkelti žaidimą">
-                        <a style="color: black; text-decoration: none;" href="{% url 'uploadGame' %}">Įkelti žaidimą!</a>
+                        <a style="color: black; text-decoration: none;" href="{% url 'uploadGame' %}">Įkelti
+                            žaidimą!</a>
                     </button>
-                    
                 </div>
+                {% endif %}
             </div>
             {% for i in userGame%}
             <a href={% url 'gamesPage' i.id %}>
-                <div class="games-content-item" >
+                <div class="games-content-item">
 
 
-                   
-                    
-                    <div class="photo"></div>
+
+
+                    <img class="photo" src="{{i.image.url}}">
                     <div class="data">
                         <div class="name">{{i.gameName}}</div>
                         <div class="info">
@@ -48,8 +50,8 @@
                 </div>
             </a>
             {% endfor%}
-                
-                <div class="clear"></div>
+
+            <div class="clear"></div>
         </div>
 
     </div>
@@ -60,4 +62,3 @@
     </div>
 </div>
 {% endblock %}
-

@@ -16,9 +16,9 @@ class CreateUserForm(UserCreationForm):
 class CreateNewGame(ModelForm):
     class Meta:
         model=UserGame
-        fields=['gameName','gameDescription','gameCode','gameOwnerUsername']
+        fields=['gameName','gameDescription','gameCode', 'image','gameOwnerUsername']
 
 class CreateNewNews(ModelForm):
     class Meta:
         model=NewsClass
-        fields=['headline','author','text']
+        fields=['headline','author','text', 'image']
