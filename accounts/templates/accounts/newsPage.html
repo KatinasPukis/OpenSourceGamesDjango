@@ -1,34 +1,66 @@
 {% extends 'accounts/main.html' %}
 {% block content %}
-    <div id="wrapper">
-        <header>
-            <h2>Open Source-Games</h2>
-        </header>
-        {% include 'accounts/navbar.html' %}
-      
-            <div class="leftcolumn">
-                <div class="card">
-                   
-                    <h1>{{news.headline}}</h1>
-                    
-                    <img class="photo" src="{{news.image.url}}">
-                    
-                    <h2>Autorius:{{news.author}}</h2>
-                    <p>{{news.text}}</p>
-                    
+<div id="wrapper">
+    <header>
+        <h2>Open Source-Games</h2>
+    </header>
+    {% include 'accounts/navbar.html' %}
 
-                </div>
-            </div>
-           <div class="rightcolumn">
-            {% for i in comment%}
-               <div class="card">
-                   <p>{{i.commentText}}</p>
-                   <p>{{i.userid.username}}</p>
-               </div>
-            {% endfor%}
-           </div>
-            <footer>
-                <address>2021 &copy;Dominykas Pleteras</address>
-            </footer>
+    <div class="leftcolumn">
+        <div class="card">
+
+            <h1>{{news.headline}}</h1>
+
+            <img class="photo" src="{{news.image.url}}">
+
+            <h2>Autorius:{{news.author}}</h2>
+            <p>{{news.text}}</p>
+            <p>Naujienos id:{{news.id}}</p>
+            
+            <p>Comment id:{{i.id}}</p>
+            <p>Comment newsid:{{i.newsid}}</p>
+            <p>UserID:{{i.userid}}</p>
+            
+
+
+
+
+
         </div>
+    </div>
+    <div class="rightcolumn">
+        
+        <h1>Komentarai</h1>
+        
+            {% if not news.comments.all %}
+                Jokiu komentaru nera <a href="#">Prideti nauja</a>
+            {% else %}
+            <a href="">Add a comment</a>
+            <br>
+
+                {% for comment in news.comments.all%}
+                <div class="card">
+                <strong>
+                    {{comment.userid}}-{{comment.date_added}}
+
+                </strong>
+                <br>
+                {{comment.body}}
+                 </div>
+                {% endfor %}
+                <br>
+
+
+            </div>
+            {% endif%}
+
+
+
+        
+        
+    </div>
+    <footer>
+        <address>2021 &copy;Dominykas Pleteras</address>
+    </footer>
+</div>
 {%endblock%}

@@ -1,5 +1,6 @@
 from django.db import models 
 from django.contrib.auth.models import User
+from django.db.models.fields.related import ManyToManyField
 
 
 # Create your models here.
@@ -25,14 +26,16 @@ class NewsClass(models.Model):
     author=models.CharField(max_length=200,null=True)
     text=models.CharField(max_length=200,null=True) 
     image = models.ImageField(null=True, blank=True)
-    def __str__(self):
-        return self.headline
+    def __int__(self):
+        return '%s - %s' % (self.headline, self.author)
 
 class Comment(models.Model):
-    userid=models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
-    newsid=models.ForeignKey(NewsClass, null=True, on_delete=models.SET_NULL)
-    commentText=models.CharField(max_length=10000,null=True)
+    userid=models.ForeignKey(User,related_name="users",null=True,on_delete=models.CASCADE)
+    newsid= models.ForeignKey(NewsClass,related_name="comments", null=True, on_delete=models.CASCADE)
+    body = models.TextField(null=True)
+    date_added = models.DateTimeField(auto_now_add=True)
+    
     def __str__(self):
-        return self.commentText
+        return '%s - %s' % (self.newsid.headline, self.userid.username)
     
      
