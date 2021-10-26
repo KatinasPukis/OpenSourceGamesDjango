@@ -362,6 +362,9 @@ div.minicontent{
   border: 1px solid black;
   border-radius: 20px; 
 }
+div.minicontent img{
+  width: 100%;
+}
 div.sidecontent{
   padding: 0px;
   margin: 20px;
@@ -380,6 +383,9 @@ div.minicontentMain{
   height: 200px; 
   border: 1px solid black;
  border-radius: 20px; 
+}
+div.minicontentMain img{
+ width: 100%;
 }
 div.minicontentMiddle{
   padding: 0px;
