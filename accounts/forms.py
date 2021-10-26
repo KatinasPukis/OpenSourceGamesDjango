@@ -1,11 +1,9 @@
 from django import forms
-from django.forms import ModelForm, fields
+from django.forms import ModelForm, fields, widgets
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-
-
-from .models import  NewsClass, UserGame
+from .models import  Comment, NewsClass, UserGame
 
 class CreateUserForm(UserCreationForm):
     class Meta:
@@ -22,3 +20,11 @@ class CreateNewNews(ModelForm):
     class Meta:
         model=NewsClass
         fields=['headline','author','text', 'image']
+
+class CreateNewComment(ModelForm):
+    class Meta:
+        model=Comment
+        fields=['userid','newsid','body']
+       
+
+

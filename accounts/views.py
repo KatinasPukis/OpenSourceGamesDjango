@@ -1,9 +1,10 @@
+
 from django.shortcuts import redirect, render
 
 from accounts.models import Comment, Customer, UserGame, NewsClass
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateNewNews, CreateUserForm, CreateNewGame
+from .forms import CreateNewNews, CreateUserForm, CreateNewGame, CreateNewComment
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 # Create your views here.
@@ -94,6 +95,28 @@ def uploadNews(request):
             return redirect('news')
     context={'form':form}
     return render(request,'accounts/uploadNews.html',context)
+
+def addComment(request, pk):
+    form=CreateNewComment()
+    news=NewsClass.objects.get(id=pk)
+    print(news.headline)
+    form = CreateNewComment(initial={'userid': request.user.id, 'newsid':news.id})
+    # def form_valid(self,form):
+    #         form.instance.newsid= self.kwargs['id']
+    #         form.instance.userid= self.kwargs[request.user.id]
+    #         return form.valid(form)
+    if request.method=='POST':
+        form=CreateNewComment(request.POST,)
+        print(request.POST)
+        
+        if(form.is_valid()):
+            form.save()
+            return redirect('news')
+    
+    context={'form':form}
+    return render(request,'accounts/addComment.html',context)
+
+    
 
 
     

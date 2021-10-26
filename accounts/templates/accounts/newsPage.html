@@ -15,29 +15,23 @@
 
             <h2>Autorius:{{news.author}}</h2>
             <p>{{news.text}}</p>
-            <p>Naujienos id:{{news.id}}</p>
-            
-            <p>Comment id:{{i.id}}</p>
-            <p>Comment newsid:{{i.newsid}}</p>
-            <p>UserID:{{i.userid}}</p>
-            
-
-
-
-
-
         </div>
     </div>
     <div class="rightcolumn">
         
         <h1>Komentarai</h1>
-        
             {% if not news.comments.all %}
-                Jokiu komentaru nera <a href="#">Prideti nauja</a>
+                Jokiu komentaru nera <a href="{% url 'addComment' news.id %}">Prideti nauja</a>
             {% else %}
-            <a href="">Add a comment</a>
+            {% if request.user.is_authenticated %}
+            <div class="ikelimas">
+                <button type="button" value="Prideti Komentara">
+                    <a style="color: black; text-decoration: none;" href="{% url 'addComment' news.id %}">Prideti komentara</a>
+                </button>
+            </div>
+            
+            {% endif %}
             <br>
-
                 {% for comment in news.comments.all%}
                 <div class="card">
                 <strong>
